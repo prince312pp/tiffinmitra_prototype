@@ -117,6 +117,18 @@ export async function runSeed() {
     accountStatus: 'active',
   });
 
+  // Dedicated applicant user for cook onboarding queue demo
+  const applicantUser = await User.create({
+    name: 'Kavita Deshmukh',
+    email: 'kavita.cook@example.com',
+    normalizedEmail: 'kavita.cook@example.com',
+    passwordHash: defaultPasswordHash,
+    role: 'customer',
+    phone: '+91 98111 22334',
+    avatarUrl: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=150&q=80',
+    accountStatus: 'active',
+  });
+
   // 2. Create Cook Profiles
   const cookProfile1 = await CookProfile.create({
     userId: cookUser1._id,
@@ -358,9 +370,9 @@ export async function runSeed() {
     },
   ]);
 
-  // 6. Create A Pending Cook Application for Admin Queue Demo
+  // 6. Create A Pending Cook Application for Admin Queue Demo (Kavita Deshmukh, NOT Rahul Sharma)
   await CookApplication.create({
-    userId: customerUser._id,
+    userId: applicantUser._id,
     applicantName: 'Kavita Deshmukh',
     kitchenName: "Kavita's Maharashtrian Poli Bhaji",
     phone: '+91 98111 22334',

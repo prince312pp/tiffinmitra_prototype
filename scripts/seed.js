@@ -125,6 +125,18 @@ async function seed() {
       createdAt: new Date(),
       updatedAt: new Date(),
     },
+    {
+      name: 'Kavita Deshmukh',
+      email: 'kavita.cook@example.com',
+      normalizedEmail: 'kavita.cook@example.com',
+      passwordHash: defaultPasswordHash,
+      role: 'customer',
+      phone: '+91 98111 22334',
+      avatarUrl: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=150&q=80',
+      accountStatus: 'active',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
   ]);
 
   const customerId = userInsertResult.insertedIds[0];
@@ -132,6 +144,8 @@ async function seed() {
   const cookId2 = userInsertResult.insertedIds[2];
   const cookId3 = userInsertResult.insertedIds[3];
   const cookId4 = userInsertResult.insertedIds[4];
+  const adminId = userInsertResult.insertedIds[5];
+  const applicantId = userInsertResult.insertedIds[6];
 
   // 2. Cook Profiles
   const cookProfileInsert = await db.collection('cookprofiles').insertMany([
@@ -404,9 +418,9 @@ async function seed() {
     },
   ]);
 
-  // 6. Pending Cook Application
+  // 6. Pending Cook Application (Kavita Deshmukh, NOT Rahul Sharma)
   await db.collection('cookapplications').insertOne({
-    userId: customerId,
+    userId: applicantId,
     applicantName: 'Kavita Deshmukh',
     kitchenName: "Kavita's Maharashtrian Poli Bhaji",
     phone: '+91 98111 22334',

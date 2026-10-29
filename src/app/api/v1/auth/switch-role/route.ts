@@ -21,6 +21,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'Target demo account not found. Please seed first.' }, { status: 404 });
     }
 
+    // Guard: Enforce Rahul Sharma / customer demo user role is strictly 'customer'
+    if (targetRole === 'customer' && user.role !== 'customer') {
+      user.role = 'customer';
+      await user.save();
+    }
+
     const token = signToken({
       userId: user._id.toString(),
       email: user.email,
