@@ -26,8 +26,14 @@ export async function runSeed() {
 
   const defaultPasswordHash = await hashPassword('password123');
 
-  // 1. Create Users
+  const CUSTOMER_USER_ID = new mongoose.Types.ObjectId('66a000000000000000000001');
+  const COOK_USER_ID = new mongoose.Types.ObjectId('66a000000000000000000002');
+  const ADMIN_USER_ID = new mongoose.Types.ObjectId('66a000000000000000000003');
+  const COOK_PROFILE_ID = new mongoose.Types.ObjectId('66a000000000000000000010');
+
+  // 1. Create Users (Deterministic IDs ensure existing client sessions persist across seeds)
   const customerUser = await User.create({
+    _id: CUSTOMER_USER_ID,
     name: 'Rahul Sharma',
     email: 'customer@tiffinmitra.com',
     normalizedEmail: 'customer@tiffinmitra.com',
@@ -63,6 +69,7 @@ export async function runSeed() {
   });
 
   const cookUser1 = await User.create({
+    _id: COOK_USER_ID,
     name: 'Asha Patel',
     email: 'cook@tiffinmitra.com',
     normalizedEmail: 'cook@tiffinmitra.com',
@@ -74,6 +81,7 @@ export async function runSeed() {
   });
 
   const adminUser = await User.create({
+    _id: ADMIN_USER_ID,
     name: 'Admin Operator',
     email: 'admin@tiffinmitra.com',
     normalizedEmail: 'admin@tiffinmitra.com',
@@ -86,6 +94,7 @@ export async function runSeed() {
 
   // 2. Create Cook Profile (Exclusively Asha's Gujarati Rasoi)
   const cookProfile1 = await CookProfile.create({
+    _id: COOK_PROFILE_ID,
     userId: cookUser1._id,
     slug: 'ashas-gujarati-rasoi',
     displayName: "Asha's Gujarati Rasoi",

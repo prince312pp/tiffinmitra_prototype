@@ -25,9 +25,15 @@ async function seed() {
   const salt = await bcrypt.genSalt(10);
   const defaultPasswordHash = await bcrypt.hash('password123', salt);
 
+  const CUSTOMER_USER_ID = new mongoose.Types.ObjectId('66a000000000000000000001');
+  const COOK_USER_ID = new mongoose.Types.ObjectId('66a000000000000000000002');
+  const ADMIN_USER_ID = new mongoose.Types.ObjectId('66a000000000000000000003');
+  const COOK_PROFILE_ID = new mongoose.Types.ObjectId('66a000000000000000000010');
+
   // 1. Users
-  const userInsertResult = await db.collection('users').insertMany([
+  await db.collection('users').insertMany([
     {
+      _id: CUSTOMER_USER_ID,
       name: 'Rahul Sharma',
       email: 'customer@tiffinmitra.com',
       normalizedEmail: 'customer@tiffinmitra.com',
@@ -66,6 +72,7 @@ async function seed() {
       updatedAt: new Date(),
     },
     {
+      _id: COOK_USER_ID,
       name: 'Asha Patel',
       email: 'cook@tiffinmitra.com',
       normalizedEmail: 'cook@tiffinmitra.com',
@@ -78,6 +85,7 @@ async function seed() {
       updatedAt: new Date(),
     },
     {
+      _id: ADMIN_USER_ID,
       name: 'Admin Operator',
       email: 'admin@tiffinmitra.com',
       normalizedEmail: 'admin@tiffinmitra.com',
@@ -91,13 +99,14 @@ async function seed() {
     },
   ]);
 
-  const customerId = userInsertResult.insertedIds[0];
-  const cookId1 = userInsertResult.insertedIds[1];
-  const adminId = userInsertResult.insertedIds[2];
+  const customerId = CUSTOMER_USER_ID;
+  const cookId1 = COOK_USER_ID;
+  const adminId = ADMIN_USER_ID;
 
   // 2. Cook Profiles (Exclusively Asha's Gujarati Rasoi)
-  const cookProfileInsert = await db.collection('cookprofiles').insertMany([
+  await db.collection('cookprofiles').insertMany([
     {
+      _id: COOK_PROFILE_ID,
       userId: cookId1,
       slug: 'ashas-gujarati-rasoi',
       displayName: "Asha's Gujarati Rasoi",
@@ -123,7 +132,7 @@ async function seed() {
     },
   ]);
 
-  const cookProfileId1 = cookProfileInsert.insertedIds[0];
+  const cookProfileId1 = COOK_PROFILE_ID;
 
   // 3. Categories
   await db.collection('mealcategories').insertMany([
