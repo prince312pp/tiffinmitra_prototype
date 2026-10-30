@@ -53,7 +53,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-brand-muted">Operations Center</p>
-                <p className="font-semibold">Koramangala 4th Block, Bengaluru, KA 560034</p>
+                <p className="font-semibold">Titanium City Center, Prahlad Nagar, Ahmedabad, GJ 380015</p>
               </div>
             </div>
           </div>

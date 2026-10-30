@@ -93,7 +93,7 @@ export default function CookDashboardPage() {
             {cook?.displayName || "Asha's Gujarati Rasoi"}
           </h1>
           <p className="text-xs text-brand-muted mt-1">
-            Serviceable areas: {cook?.serviceAreas?.join(', ') || 'Koramangala, HSR Layout'} • FSSAI: {cook?.fssaiNumber || '21223010000456'}
+            Serviceable areas: {cook?.serviceAreas?.join(', ') || 'Navrangpura, Vastrapur, Bodakdev'} • FSSAI: {cook?.fssaiNumber || '21223010000456'}
           </p>
         </div>
 

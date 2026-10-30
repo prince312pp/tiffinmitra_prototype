@@ -34,10 +34,10 @@ export default function CheckoutPage() {
   const defaultAddress = user?.addresses?.[0] || {
     recipientName: user?.name || 'Rahul Sharma',
     phone: user?.phone || '+91 98765 43210',
-    addressLine1: 'Flat 402, Green Glen Layout, 4th Cross',
-    locality: 'Koramangala',
-    city: 'Bengaluru',
-    postalCode: '560034',
+    addressLine1: 'Flat 402, Shivalik Residency, Near Vastrapur Lake',
+    locality: 'Vastrapur',
+    city: 'Ahmedabad',
+    postalCode: '380015',
     instructions: 'Ring doorbell on 4th floor',
   };
 

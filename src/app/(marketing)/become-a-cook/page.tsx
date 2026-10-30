@@ -20,7 +20,7 @@ export default function BecomeACookPage() {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
-  const [locality, setLocality] = useState('Koramangala');
+  const [locality, setLocality] = useState('Vastrapur');
   const [cuisineSpecialties, setCuisineSpecialties] = useState('Gujarati, Kathiyawadi');
   const [fssaiNumber, setFssaiNumber] = useState('');
   const [dailyCapacity, setDailyCapacity] = useState('25');
@@ -29,7 +29,7 @@ export default function BecomeACookPage() {
   const [submittedSuccess, setSubmittedSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const localities = ['Koramangala', 'HSR Layout', 'Indiranagar', 'BTM Layout', 'Whitefield', 'Jayanagar'];
+  const localities = ['Navrangpura', 'Vastrapur', 'Satellite', 'Bodakdev', 'Prahlad Nagar', 'Thaltej'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

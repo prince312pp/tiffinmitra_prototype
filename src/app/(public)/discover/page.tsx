@@ -26,7 +26,7 @@ function DiscoverContent() {
   const [selectedDietary, setSelectedDietary] = useState('all');
   const [maxPrice, setMaxPrice] = useState(250);
 
-  const localities = ['All', 'Koramangala', 'HSR Layout', 'Indiranagar', 'BTM Layout', 'Whitefield'];
+  const localities = ['All', 'Navrangpura', 'Vastrapur', 'Satellite', 'Bodakdev', 'Prahlad Nagar', 'Thaltej'];
   const cuisines = ['All', 'Gujarati', 'Punjabi', 'South Indian', 'Mughlai', 'North Indian'];
 
   const fetchData = async () => {
@@ -239,7 +239,7 @@ function DiscoverContent() {
           <ChefHat className="w-12 h-12 text-brand-muted mx-auto" />
           <h3 className="text-lg font-bold text-brand-charcoal">No home cooks found in this area</h3>
           <p className="text-xs text-brand-muted max-w-sm mx-auto">
-            Try switching to another Bangalore locality or clearing your filters.
+            Try switching to another locality or clearing your filters.
           </p>
           <Button variant="outline" size="sm" onClick={clearFilters}>
             Reset Filters

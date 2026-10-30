@@ -54,7 +54,7 @@ async function getFeaturedData() {
 export default async function HomePage() {
   const { cooks, meals } = await getFeaturedData();
 
-  const localities = ['Koramangala', 'HSR Layout', 'Indiranagar', 'BTM Layout', 'Whitefield'];
+  const localities = ['Navrangpura', 'Vastrapur', 'Satellite', 'Bodakdev', 'Prahlad Nagar', 'Thaltej'];
 
   return (
     <div className="space-y-20 pb-16">
@@ -86,12 +86,12 @@ export default async function HomePage() {
                     <MapPin className="w-4 h-4 text-brand-terracotta shrink-0" />
                     <select
                       className="w-full bg-transparent border-none text-sm font-semibold text-brand-charcoal focus:outline-none cursor-pointer"
-                      defaultValue="Koramangala"
+                      defaultValue="Vastrapur"
                     >
                       <option value="" disabled>Select your delivery area</option>
                       {localities.map((loc) => (
                         <option key={loc} value={loc}>
-                          {loc}, Bengaluru
+                          {loc}, Ahmedabad
                         </option>
                       ))}
                     </select>
@@ -141,7 +141,7 @@ export default async function HomePage() {
                       />
                       <div>
                         <h4 className="text-xs font-bold text-brand-charcoal">Asha's Gujarati Rasoi</h4>
-                        <p className="text-[11px] text-brand-muted">Koramangala • 4.9 ★ (84 reviews)</p>
+                        <p className="text-[11px] text-brand-muted">Vastrapur • 4.9 ★ (84 reviews)</p>
                       </div>
                     </div>
                     <Badge variant="veg" className="text-[10px]">Pure Veg</Badge>

@@ -74,7 +74,7 @@ If presenting via slides (PowerPoint/Keynote/Pitch Deck), use this 8-slide flow:
 - *(Switch to live browser tab running `http://localhost:3000`)*.
 
 ### Slide 8: Commercial Roadmap & Expansion
-- **Phase A:** Hyperlocal cluster launch in urban student/IT hubs (Koramangala, HSR Layout).
+- **Phase A:** Hyperlocal neighborhood cluster launches in active residential and corporate hubs (e.g. Vastrapur, Navrangpura, Bodakdev).
 - **Phase B:** Production Razorpay integration and automated cook payout disbursements.
 - **Phase C:** Regional language support and dedicated office cluster corporate meal passes.
 
@@ -131,7 +131,7 @@ Use this exact click-by-click narrative when presenting the prototype live.
 
 ### Demo Step 1: The Diner Experience (Rahul Sharma)
 1. **Homepage:** Show the Hero section with headline: *"A Little Taste of Home, Every Single Day."*
-2. **Locality Selection:** Select **Koramangala, Bengaluru** from the selector and click **"Find Your Tiffin"**.
+2. **Locality Selection:** Select **Vastrapur, Ahmedabad** from the selector and click **"Find Your Tiffin"**.
 3. **Discovery Page (`/discover`):**
    - Demonstrate the filters: Switch dietary to **Pure Veg** or **Jain**.
    - Filter by cuisine (e.g., **Gujarati** or **Punjabi**).
@@ -156,7 +156,7 @@ Use this exact click-by-click narrative when presenting the prototype live.
 ### Demo Step 3: Simulated Payment Gateway
 1. Open the Cart Drawer and click **"Proceed to Checkout"**.
 2. **Checkout Page (`/checkout`):**
-   - Show pre-filled delivery address for Rahul Sharma in Koramangala.
+   - Show pre-filled delivery address for Rahul Sharma in Vastrapur, Ahmedabad.
    - Choose requested slot: **Lunch (12:30 PM - 01:30 PM)**.
    - In the Simulated Payment Gateway, select **Simulated UPI**.
 3. **Demonstrate Bank Failure & Retry First:**
@@ -258,7 +258,7 @@ When speaking to technical judges, highlight these engineering achievements:
 ## 7. Anticipated Q&A Defense
 
 ### Q1: *"Why can't customers order from two different home cooks in the same order?"*
-> **Answer:** *"In restaurant aggregators, dark kitchens are located in commercial clusters with shared dispatchers. In home food marketplaces, Cook A prepares food in her apartment in Koramangala while Cook B cooks in HSR Layout with independent preparation timings. Bundling them into one delivery order causes delayed food, cold rotis, and logistical chaos. TiffinMitra respects the domestic reality: one kitchen, cooked with care, delivered fresh."*
+> **Answer:** *"In restaurant aggregators, dark kitchens are located in commercial clusters with shared dispatchers. In home food marketplaces, Cook A prepares food in her home in Vastrapur while Cook B cooks across town in Bodakdev with independent preparation timings. Bundling them into one delivery order causes delayed food, cold rotis, and logistical chaos. TiffinMitra respects the domestic reality: one kitchen, cooked with care, delivered fresh."*
 
 ### Q2: *"How do you prevent food safety or hygiene issues with home cooks?"*
 > **Answer:** *"Every cook must complete our guided onboarding wizard requiring kitchen inspection details and FSSAI registration numbers. Furthermore, only authorized platform administrators can approve a cook application before their storefront appears in public discovery. Ratings can only be left by verified diners who received a delivered meal."*

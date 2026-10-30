@@ -104,9 +104,10 @@ export async function POST(request: NextRequest) {
       status: 'active',
       totalMinor: plan.priceMinor,
       deliveryAddress: deliveryAddress || {
-        addressLine1: 'Flat 402, Green Glen Layout, 4th Cross',
-        locality: 'Koramangala',
-        city: 'Bengaluru',
+        addressLine1: 'Flat 402, Shivalik Residency, Near Vastrapur Lake',
+        locality: 'Vastrapur',
+        city: 'Ahmedabad',
+        postalCode: '380015',
       },
       paymentId: paymentIntent.paymentId,
     });

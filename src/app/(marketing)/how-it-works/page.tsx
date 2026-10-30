@@ -43,7 +43,7 @@ export default function HowItWorksPage() {
             </div>
             <h3 className="font-bold text-base text-brand-charcoal">Discover Local Cooks</h3>
             <p className="text-xs text-brand-muted leading-relaxed">
-              Enter your Bangalore locality (e.g. Koramangala or HSR Layout) to see certified home chefs serving Gujarati, Punjabi, South Indian, or Mughlai daily food.
+              Select your neighborhood or delivery area (e.g. Vastrapur, Navrangpura, Bodakdev) to see certified home chefs serving fresh, authentic daily food.
             </p>
           </div>
 
