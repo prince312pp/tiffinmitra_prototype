@@ -31,7 +31,7 @@ export function QuickDemoSwitcher() {
   };
 
   return (
-    <div className="fixed bottom-3 right-3 z-50">
+    <div className="fixed top-3 left-3 z-50">
       <div className="bg-white/95 backdrop-blur-md border border-brand-border shadow-xl rounded-2xl p-2.5 max-w-sm transition-all duration-200">
         <div
           onClick={() => setIsExpanded(!isExpanded)}
@@ -47,9 +47,9 @@ export function QuickDemoSwitcher() {
               {role}
             </Badge>
             {isExpanded ? (
-              <ChevronDown className="w-4 h-4 text-brand-muted" />
-            ) : (
               <ChevronUp className="w-4 h-4 text-brand-muted" />
+            ) : (
+              <ChevronDown className="w-4 h-4 text-brand-muted" />
             )}
           </div>
         </div>

@@ -125,7 +125,7 @@ Use this exact click-by-click narrative when presenting the prototype live.
 
 ### Demo Setup
 1. Open your browser to `http://localhost:3000`.
-2. Notice the **Quick Demo Switcher** floating in the bottom-right corner. It allows you to switch between **Diner**, **Home Cook**, and **Admin** in one click.
+2. Notice the **Quick Demo Switcher** floating in the top-left corner. It allows you to switch between **Diner**, **Home Cook**, and **Admin** in one click.
 
 ---
 
@@ -171,7 +171,7 @@ Use this exact click-by-click narrative when presenting the prototype live.
 ---
 
 ### Demo Step 4: The Home Cook Portal (Asha Patel)
-1. Use the **Quick Demo Switcher** (bottom right) to switch to **Home Cook (Asha Patel)**.
+1. Use the **Quick Demo Switcher** (top left) to switch to **Home Cook (Asha Patel)**.
 2. Navigate to **Kitchen Orders (`/cook/dashboard`)**:
    - Show the live incoming requests queue.
    - Point out the order just placed by Rahul Sharma.

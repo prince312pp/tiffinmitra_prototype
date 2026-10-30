@@ -104,7 +104,7 @@ interface PaymentProvider {
 
 ## 👥 Predefined Demo Accounts
 
-The prototype features a **1-Click Role Switcher** (floating widget on the bottom right) and fast login buttons on `/login`:
+The prototype features a **1-Click Role Switcher** (floating widget on the top left) and fast login buttons on `/login`:
 
 | Persona | Name | Email | Password | Role |
 | :--- | :--- | :--- | :--- | :--- |
