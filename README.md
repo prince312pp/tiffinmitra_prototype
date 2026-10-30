@@ -117,23 +117,23 @@ The prototype features a **1-Click Role Switcher** (floating widget on the top l
 ## 🚀 Running the Application Locally
 
 ### Prerequisites
-- Node.js `v18+` or `v20+` or `v24+`
+- Bun `v1.1+` (or Node.js `v18+`)
 - MongoDB Community Server running on `localhost:27017`
 
 ### Setup Commands
 ```bash
 # 1. Install dependencies
-npm install
+bun install
 
 # 2. Seed deterministic mock data into MongoDB
-npm run seed
+bun run seed
 
 # 3. Start development server
-npm run dev
+bun run dev
 
 # Or build and start production server
-npm run build
-npm run start
+bun run build
+bun run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
