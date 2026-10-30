@@ -20,28 +20,35 @@ import {
   MessageSquare,
 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 async function getCookStorefront(slug: string) {
-  await connectDB();
-  const cook = await CookProfile.findOne({ slug, applicationStatus: 'approved' }).lean();
-  if (!cook) return null;
+  try {
+    await connectDB();
+    const cook = await CookProfile.findOne({ slug, applicationStatus: 'approved' }).lean();
+    if (!cook) return null;
 
-  const meals = await Meal.find({ cookId: cook._id }).lean();
-  const plans = await SubscriptionPlan.find({ cookId: cook._id, isActive: true }).lean();
-  const reviews = await Review.find({ cookId: cook._id }).sort({ createdAt: -1 }).lean();
+    const meals = await Meal.find({ cookId: cook._id }).lean();
+    const plans = await SubscriptionPlan.find({ cookId: cook._id, isActive: true }).lean();
+    const reviews = await Review.find({ cookId: cook._id }).sort({ createdAt: -1 }).lean();
 
-  return {
-    cook: { ...cook, _id: cook._id.toString(), userId: cook.userId.toString() },
-    meals: meals.map((m: any) => ({
-      ...m,
-      _id: m._id.toString(),
-      cookId: cook._id.toString(),
-      cookName: cook.displayName,
-      cookSlug: cook.slug,
-      cookServiceAreas: cook.serviceAreas,
-    })),
-    plans: plans.map((p: any) => ({ ...p, _id: p._id.toString(), cookId: cook._id.toString() })),
-    reviews: reviews.map((r: any) => ({ ...r, _id: r._id.toString() })),
-  };
+    return {
+      cook: { ...cook, _id: cook._id.toString(), userId: cook.userId.toString() },
+      meals: meals.map((m: any) => ({
+        ...m,
+        _id: m._id.toString(),
+        cookId: cook._id.toString(),
+        cookName: cook.displayName,
+        cookSlug: cook.slug,
+        cookServiceAreas: cook.serviceAreas,
+      })),
+      plans: plans.map((p: any) => ({ ...p, _id: p._id.toString(), cookId: cook._id.toString() })),
+      reviews: reviews.map((r: any) => ({ ...r, _id: r._id.toString() })),
+    };
+  } catch (error) {
+    console.error(`Failed to load cook storefront for ${slug}:`, error);
+    return null;
+  }
 }
 
 export default async function CookStorefrontPage({

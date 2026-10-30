@@ -20,35 +20,42 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 async function getFeaturedData() {
-  await connectDB();
-  const cooks = await CookProfile.find({ applicationStatus: 'approved' })
-    .sort({ averageRating: -1 })
-    .limit(4)
-    .lean();
+  try {
+    await connectDB();
+    const cooks = await CookProfile.find({ applicationStatus: 'approved' })
+      .sort({ averageRating: -1 })
+      .limit(4)
+      .lean();
 
-  const meals = await Meal.find({ isAvailable: true })
-    .populate('cookId', 'displayName slug serviceAreas averageRating')
-    .limit(6)
-    .lean();
+    const meals = await Meal.find({ isAvailable: true })
+      .populate('cookId', 'displayName slug serviceAreas averageRating')
+      .limit(6)
+      .lean();
 
-  const formattedMeals = meals.map((m: any) => ({
-    ...m,
-    _id: m._id.toString(),
-    cookId: m.cookId?._id?.toString(),
-    cookName: m.cookId?.displayName,
-    cookSlug: m.cookId?.slug,
-    cookServiceAreas: m.cookId?.serviceAreas || [],
-    cookRating: m.cookId?.averageRating || 4.8,
-  }));
+    const formattedMeals = meals.map((m: any) => ({
+      ...m,
+      _id: m._id.toString(),
+      cookId: m.cookId?._id?.toString(),
+      cookName: m.cookId?.displayName,
+      cookSlug: m.cookId?.slug,
+      cookServiceAreas: m.cookId?.serviceAreas || [],
+      cookRating: m.cookId?.averageRating || 4.8,
+    }));
 
-  const formattedCooks = cooks.map((c: any) => ({
-    ...c,
-    _id: c._id.toString(),
-    userId: c.userId.toString(),
-  }));
+    const formattedCooks = cooks.map((c: any) => ({
+      ...c,
+      _id: c._id.toString(),
+      userId: c.userId.toString(),
+    }));
 
-  return { cooks: formattedCooks, meals: formattedMeals };
+    return { cooks: formattedCooks, meals: formattedMeals };
+  } catch (error) {
+    console.error('Failed to load featured data from database:', error);
+    return { cooks: [], meals: [] };
+  }
 }
 
 export default async function HomePage() {
