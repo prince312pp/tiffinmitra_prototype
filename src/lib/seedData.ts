@@ -73,39 +73,6 @@ export async function runSeed() {
     accountStatus: 'active',
   });
 
-  const cookUser2 = await User.create({
-    name: 'Sunita Kaur',
-    email: 'sunita@tiffinmitra.com',
-    normalizedEmail: 'sunita@tiffinmitra.com',
-    passwordHash: defaultPasswordHash,
-    role: 'cook',
-    phone: '+91 98451 22334',
-    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-    accountStatus: 'active',
-  });
-
-  const cookUser3 = await User.create({
-    name: 'Meenakshi Amma',
-    email: 'meenakshi@tiffinmitra.com',
-    normalizedEmail: 'meenakshi@tiffinmitra.com',
-    passwordHash: defaultPasswordHash,
-    role: 'cook',
-    phone: '+91 98452 33445',
-    avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-    accountStatus: 'active',
-  });
-
-  const cookUser4 = await User.create({
-    name: 'Fatima Begum',
-    email: 'fatima@tiffinmitra.com',
-    normalizedEmail: 'fatima@tiffinmitra.com',
-    passwordHash: defaultPasswordHash,
-    role: 'cook',
-    phone: '+91 98453 44556',
-    avatarUrl: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=150&q=80',
-    accountStatus: 'active',
-  });
-
   const adminUser = await User.create({
     name: 'Admin Operator',
     email: 'admin@tiffinmitra.com',
@@ -117,19 +84,7 @@ export async function runSeed() {
     accountStatus: 'active',
   });
 
-  // Dedicated applicant user for cook onboarding queue demo
-  const applicantUser = await User.create({
-    name: 'Kavita Deshmukh',
-    email: 'kavita.cook@example.com',
-    normalizedEmail: 'kavita.cook@example.com',
-    passwordHash: defaultPasswordHash,
-    role: 'customer',
-    phone: '+91 98111 22334',
-    avatarUrl: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=150&q=80',
-    accountStatus: 'active',
-  });
-
-  // 2. Create Cook Profiles
+  // 2. Create Cook Profile (Exclusively Asha's Gujarati Rasoi)
   const cookProfile1 = await CookProfile.create({
     userId: cookUser1._id,
     slug: 'ashas-gujarati-rasoi',
@@ -150,75 +105,6 @@ export async function runSeed() {
     averageRating: 4.9,
     reviewCount: 84,
     fssaiNumber: '21223010000456',
-    kitchenHygieneCertified: true,
-  });
-
-  const cookProfile2 = await CookProfile.create({
-    userId: cookUser2._id,
-    slug: 'sunitas-punjabi-rasoi',
-    displayName: "Sunita's Punjabi Rasoi",
-    bio: 'Homestyle Amritsari Dal Makhani, Rajma Chawal, and soft whole-wheat Phulkas cooked in cold-pressed mustard oil with pure desi ghee.',
-    profileImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    coverImage: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80',
-    cuisineTypes: ['Punjabi', 'North Indian'],
-    dietaryOptions: ['veg'],
-    serviceAreas: ['Indiranagar', 'Domlur', 'Koramangala'],
-    deliveryEnabled: true,
-    pickupEnabled: true,
-    operatingHours: '11:30 AM - 09:00 PM',
-    preparationTimeMinutes: 40,
-    dailyOrderCapacity: 30,
-    applicationStatus: 'approved',
-    isAcceptingOrders: true,
-    averageRating: 4.8,
-    reviewCount: 62,
-    fssaiNumber: '21223010000789',
-    kitchenHygieneCertified: true,
-  });
-
-  const cookProfile3 = await CookProfile.create({
-    userId: cookUser3._id,
-    slug: 'meenakshi-ammas-kitchen',
-    displayName: "Meenakshi Amma's Kitchen",
-    bio: 'Traditional South Indian home meals with freshly roasted Podi, steaming Sambhar, rasam, and seasonal vegetable poriyal.',
-    profileImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-    coverImage: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1200&q=80',
-    cuisineTypes: ['South Indian', 'Tamilian'],
-    dietaryOptions: ['veg', 'vegan'],
-    serviceAreas: ['HSR Layout', 'Koramangala', 'Bellandur'],
-    deliveryEnabled: true,
-    pickupEnabled: false,
-    operatingHours: '11:00 AM - 08:30 PM',
-    preparationTimeMinutes: 30,
-    dailyOrderCapacity: 40,
-    applicationStatus: 'approved',
-    isAcceptingOrders: true,
-    averageRating: 4.9,
-    reviewCount: 110,
-    fssaiNumber: '21223010000321',
-    kitchenHygieneCertified: true,
-  });
-
-  const cookProfile4 = await CookProfile.create({
-    userId: cookUser4._id,
-    slug: 'dastarkhwan-home-kitchen',
-    displayName: "Dastarkhwan Home Kitchen",
-    bio: 'Family heirloom recipes: homestyle Murgh Korma, slow-simmered aromatic dum biryani, and handmade tawa parathas with fresh raita.',
-    profileImage: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80',
-    coverImage: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1200&q=80',
-    cuisineTypes: ['Mughlai', 'Hyderabadi', 'North Indian'],
-    dietaryOptions: ['nonVeg'],
-    serviceAreas: ['BTM Layout', 'Jayanagar', 'JP Nagar'],
-    deliveryEnabled: true,
-    pickupEnabled: true,
-    operatingHours: '12:00 PM - 10:00 PM',
-    preparationTimeMinutes: 45,
-    dailyOrderCapacity: 25,
-    applicationStatus: 'approved',
-    isAcceptingOrders: true,
-    averageRating: 4.8,
-    reviewCount: 48,
-    fssaiNumber: '21223010000654',
     kitchenHygieneCertified: true,
   });
 
@@ -266,74 +152,57 @@ export async function runSeed() {
   });
 
   const meal3 = await Meal.create({
-    cookId: cookProfile2._id,
-    name: 'Amritsari Rajma Chawal Thali',
-    slug: 'amritsari-rajma-chawal-thali',
-    description: 'Slow-simmered Kashmiri Rajma in thick tomato onion gravy, fragrant Jeera Rice, 2 Tawa Rotis, Boondi Raita, and spicy green chili pickle.',
+    cookId: cookProfile1._id,
+    name: 'Gujarati Dal Dhokli & Steamed Rice',
+    slug: 'gujarati-dal-dhokli-steamed-rice',
+    description: 'Traditional spiced whole wheat pasta simmered gently in a sweet-tangy tuvar dal gravy, served with Steamed Basmati Rice, roasted papad, and fresh chopped coriander.',
     category: 'Daily Thalis',
-    imageUrl: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80',
-    priceMinor: 16000, // ₹160
-    portionDescription: 'Standard 1 Person Thali (200ml Rajma, Jeera Rice, 2 Rotis, Raita & Salad)',
-    ingredients: ['Kashmiri Red Rajma', 'Basmati Rice', 'Cold Pressed Mustard Oil', 'Ginger Garlic', 'Whole Spices'],
-    allergens: ['Dairy (Raita)', 'Gluten'],
-    dietaryLabels: ['veg'],
-    preparationMinutes: 35,
-    availableQuantity: 15,
+    imageUrl: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80',
+    priceMinor: 13000, // ₹130
+    portionDescription: '1 Person Comfort Bowl (350ml Dal Dhokli, Steamed Rice, Roasted Papad & Pickle)',
+    ingredients: ['Whole Wheat Flour', 'Tuvar Dal', 'Jaggery', 'Kokum', 'Peanuts', 'Ghee'],
+    allergens: ['Dairy (Ghee)', 'Gluten', 'Peanuts'],
+    dietaryLabels: ['veg', 'jain'],
+    preparationMinutes: 30,
+    availableQuantity: 10,
     isAvailable: true,
   });
 
   const meal4 = await Meal.create({
-    cookId: cookProfile2._id,
-    name: 'Punjabi Dal Makhani & Missi Roti',
-    slug: 'punjabi-dal-makhani-missi-roti',
-    description: 'Overnight slow-cooked black lentils with white butter, served with 2 spiced Missi Rotis, Sirka Onions, and fresh green mint chutney.',
+    cookId: cookProfile1._id,
+    name: 'Methi Thepla with Chhundo & Fresh Curd',
+    slug: 'methi-thepla-chhundo-curd',
+    description: '4 Fragrant soft fenugreek and whole-wheat theplas spiced with ajwain and white sesame seeds. Served with sweet grated mango relish (Chhundo) and chilled homestyle curd.',
     category: 'Regional Specials',
-    imageUrl: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80',
-    priceMinor: 19000, // ₹190
-    portionDescription: 'Special Meal (200ml Dal Makhani, 2 Missi Rotis, Salad & Chutney)',
-    ingredients: ['Urad Dal', 'Rajma', 'Makhan', 'Gram Flour', 'Kasuri Methi'],
-    allergens: ['Dairy (Butter/Cream)', 'Gluten'],
-    dietaryLabels: ['veg'],
-    preparationMinutes: 40,
-    availableQuantity: 10,
+    imageUrl: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80',
+    priceMinor: 12000, // ₹120
+    portionDescription: 'Light Meal Box (4 Fresh Theplas, 100ml Curd, Chhundo Relish)',
+    ingredients: ['Fresh Methi (Fenugreek)', 'Whole Wheat Atta', 'Sesame Seeds', 'Ajwain', 'Fresh Dahi', 'Mango Chhundo'],
+    allergens: ['Dairy (Curd)', 'Gluten', 'Sesame'],
+    dietaryLabels: ['veg', 'jain'],
+    preparationMinutes: 25,
+    availableQuantity: 15,
     isAvailable: true,
   });
 
   const meal5 = await Meal.create({
-    cookId: cookProfile3._id,
-    name: 'South Indian Raja Thali',
-    slug: 'south-indian-raja-thali',
-    description: 'Steamed Ponni Rice, Drumstick Sambhar, Pepper Rasam, Cabbage Kootu, Potato Podimas, Crispy Appalam, and Sweet Payasam.',
-    category: 'Daily Thalis',
-    imageUrl: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=600&q=80',
+    cookId: cookProfile1._id,
+    name: 'Jain Kathiyawadi Sev Tameta Thali',
+    slug: 'jain-kathiyawadi-sev-tameta-thali',
+    description: '100% Sattvic preparation: tangy desi tomato curry topped with crunchy spicy besan sev, served with 4 soft Phulkas, Gujarati sweet dal, steamed rice, and fresh buttermilk.',
+    category: 'Dietary & Jain',
+    imageUrl: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80',
     priceMinor: 15000, // ₹150
-    portionDescription: 'Generous Meal Box (Ponni Rice, 150ml Sambar, 150ml Rasam, Kootu, Poriyal, Appalam)',
-    ingredients: ['Ponni Rice', 'Drumsticks', 'Curry Leaves', 'Asafoetida', 'Grated Coconut'],
-    allergens: ['Mustard Seeds'],
-    dietaryLabels: ['veg', 'vegan'],
+    portionDescription: '1 Person Jain Thali (4 Phulkas, 150ml Sev Tameta, 150ml Dal, Rice, Chaas)',
+    ingredients: ['Country Tomatoes', 'Besan Sev', 'Tuvar Dal', 'Whole Wheat Atta', 'Ghee'],
+    allergens: ['Dairy (Ghee/Chaas)', 'Gluten'],
+    dietaryLabels: ['veg', 'jain'],
     preparationMinutes: 30,
-    availableQuantity: 20,
+    availableQuantity: 12,
     isAvailable: true,
   });
 
-  const meal6 = await Meal.create({
-    cookId: cookProfile4._id,
-    name: 'Homestyle Murgh Curry Thali',
-    slug: 'homestyle-murgh-curry-thali',
-    description: 'Tender chicken pieces simmered in caramelized onion and yogurt gravy, served with 3 Tawa Parathas, Jeera Rice, and sliced red onions.',
-    category: 'Daily Thalis',
-    imageUrl: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80',
-    priceMinor: 22000, // ₹220
-    portionDescription: '1 Person Rich Thali (3 Chicken pieces in gravy, 3 Parathas, Rice, Salad)',
-    ingredients: ['Farm Fresh Chicken', 'Yogurt', 'Brown Onions', 'Coriander', 'Shahi Garam Masala'],
-    allergens: ['Dairy (Yogurt)', 'Gluten'],
-    dietaryLabels: ['nonVeg'],
-    preparationMinutes: 45,
-    availableQuantity: 10,
-    isAvailable: true,
-  });
-
-  // 5. Create Subscription Plans
+  // 5. Create Subscription Plans (Exclusively Asha's Gujarati Rasoi)
   await SubscriptionPlan.create([
     {
       cookId: cookProfile1._id,
@@ -347,45 +216,28 @@ export async function runSeed() {
       isActive: true,
     },
     {
-      cookId: cookProfile2._id,
-      name: '14-Day Routine North Indian Meal Plan',
-      description: '14 days of wholesome Punjabi lunches (Rajma, Kadhi, Dal Tadka, Chhole, Aloo Gobi rotis). Pause anytime with morning cutoff.',
-      mealDefinitions: ['2 Tawa Rotis', 'Dal or Rajma', 'Seasonal Sabzi', 'Jeera Rice', 'Salad'],
+      cookId: cookProfile1._id,
+      name: '14-Day Gujarati Comfort Thali Routine',
+      description: '14 days of wholesome homestyle Gujarati lunches. Daily variety with morning cutoff pause guarantee.',
+      mealDefinitions: ['4 Phulkas', 'Daily Dal/Kadhi', 'Seasonal Sabzi', 'Steamed Rice', 'Salad & Chaas'],
       schedule: 'daily',
       durationDays: 14,
       mealSlots: ['lunch'],
-      priceMinor: 196000, // ₹1960 (14 meals @ ₹140)
+      priceMinor: 182000, // ₹1820 (14 meals @ ₹130)
       isActive: true,
     },
     {
-      cookId: cookProfile3._id,
-      name: 'Monthly South Indian Lunch & Dinner Plan',
-      description: '30-day complete meal peace of mind. South Indian lunch thali + Light dinner (Idli/Dosa/Upma with sambar & chutneys).',
-      mealDefinitions: ['Lunch: Traditional Sambar Rice & Poriyal', 'Dinner: 3 Idlis or 2 Dosas with fresh Chutneys'],
+      cookId: cookProfile1._id,
+      name: 'Monthly Complete Ghar Ka Khana Plan',
+      description: '30-day complete meal peace of mind. Wholesome lunch thali + Light comforting dinner.',
+      mealDefinitions: ['Lunch: Gujarati Ghar Ka Thali', 'Dinner: 4 Theplas or Dal Dhokli with fresh Curd'],
       schedule: 'daily',
       durationDays: 30,
       mealSlots: ['lunch', 'dinner'],
-      priceMinor: 600000, // ₹6000 (60 meal deliveries)
+      priceMinor: 600000, // ₹6000 (60 meals)
       isActive: true,
     },
   ]);
-
-  // 6. Create A Pending Cook Application for Admin Queue Demo (Kavita Deshmukh, NOT Rahul Sharma)
-  await CookApplication.create({
-    userId: applicantUser._id,
-    applicantName: 'Kavita Deshmukh',
-    kitchenName: "Kavita's Maharashtrian Poli Bhaji",
-    phone: '+91 98111 22334',
-    email: 'kavita.cook@example.com',
-    address: 'B-12, Sunrise Apts, 1st Main, HSR Layout Sector 2',
-    locality: 'HSR Layout',
-    cuisineSpecialties: ['Maharashtrian', 'Poli Bhaji Kendra', 'Puran Poli'],
-    fssaiNumber: '21223010099887',
-    dailyCapacity: 25,
-    status: 'pending_review',
-    reviewNotes: 'Kitchen cleanliness photo submitted, domestic gas pipeline verified.',
-    submittedAt: new Date(Date.now() - 1000 * 60 * 60 * 6), // 6 hours ago
-  });
 
   // 7. Create Demo Orders for Customer
   const completedOrder = await Order.create({

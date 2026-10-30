@@ -145,12 +145,11 @@ Use this exact click-by-click narrative when presenting the prototype live.
 ### Demo Step 2: The Single-Cook Cart Invariant
 1. Click **"Add"** on Asha Patel's Gujarati Thali.
 2. The Cart Drawer opens smoothly on the right, showing 1 item from *Asha's Gujarati Rasoi*.
-3. Now, navigate to **Sunita's Punjabi Rasoi** (`/cooks/sunitas-punjabi-rasoi`) and attempt to add **"Amritsari Rajma Chawal Thali"**.
-4. **Trigger the Invariant Dialog:**
-   - The accessible modal immediately appears:
+3. Add another dish from Asha Patel (e.g. *Kathiyawadi Ringan Bhartu* or *Gujarati Dal Dhokli*). Both items group seamlessly under Asha's kitchen.
+4. **Architectural Invariant:**
+   - Mention the platform's core domestic invariant: Tiffin orders are freshly prepared in independent domestic home kitchens, so each order is strictly bound to a single cook. If a diner adds an item from any other cook, the frontend modal intercepts immediately:
      > *"Replace items in cart? Your cart already contains delicious items from Asha's Gujarati Rasoi. Tiffin orders are freshly prepared in independent domestic kitchens and cannot be bundled across different cooks."*
-5. Click **"Keep Current Order"** to show cart protection.
-6. Then click add again and choose **"Clear & Add New Item"** to show clean transition.
+   - Users can choose **"Keep Current Order"** or **"Clear & Add New Item"**.
 
 ---
 
@@ -205,10 +204,8 @@ Use this exact click-by-click narrative when presenting the prototype live.
 1. Use the **Quick Demo Switcher** to switch to **Admin Operator**.
 2. Navigate to **Admin Portal (`/admin/dashboard`)**:
    - Point out the live metrics: Total Users, Approved Cooks, Pending Applications, Total Orders, GMV.
-3. **Cook Application Queue:**
-   - Show the pending application for **"Kavita's Maharashtrian Poli Bhaji"** in HSR Layout.
-   - Click **"Approve & Activate Cook"**.
-   - The application is approved, audit log recorded, and Kavita's storefront is immediately active in public discovery.
+3. **Cook Application Queue (`/admin/applications`):**
+   - Demonstrate the admin verification workflow for onboarding home chefs. If a candidate submits an application via `/become-a-cook`, it immediately enters this queue for hygiene review and approval.
 4. **Assimilated Payment Records:**
    - Show the audit table with payment IDs, simulated UPI references, and settlement timestamps.
 
