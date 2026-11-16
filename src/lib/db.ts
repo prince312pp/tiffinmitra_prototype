@@ -1,4 +1,34 @@
 import mongoose from 'mongoose';
+import User from '@/models/User';
+import CookProfile from '@/models/CookProfile';
+import Meal from '@/models/Meal';
+import MealCategory from '@/models/MealCategory';
+import Order from '@/models/Order';
+import Payment from '@/models/Payment';
+import Subscription from '@/models/Subscription';
+import SubscriptionPlan from '@/models/SubscriptionPlan';
+import Review from '@/models/Review';
+import Cart from '@/models/Cart';
+import CookApplication from '@/models/CookApplication';
+import AuditLog from '@/models/AuditLog';
+import Favorite from '@/models/Favorite';
+
+// Pre-register all models to avoid MissingSchemaError in serverless functions
+export const models = {
+  User,
+  CookProfile,
+  Meal,
+  MealCategory,
+  Order,
+  Payment,
+  Subscription,
+  SubscriptionPlan,
+  Review,
+  Cart,
+  CookApplication,
+  AuditLog,
+  Favorite,
+};
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/tiffinmitra';
 
